@@ -25,10 +25,8 @@ resource "aws_instance" "vm" {
   ami           = "ami-047a51fa27710816e" # us-east-1
   instance_type = "t2.micro"
 
-  network_interface {
-    network_interface_id = aws_network_interface.nic.id
-    device_index         = 0
-  }
+  private_ip = "10.0.1.99"
+  subnet_id = aws_subnet.snet.id
 
   credit_specification {
     cpu_credits = "unlimited"
