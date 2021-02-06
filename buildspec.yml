@@ -8,3 +8,4 @@ phases:
         commands:
             - dotnet build -c Release ./FlightLog/FlightLog.csproj
             #- dotnet test -c Release ./CodeBuildDotnetTestReportExample.Tests/CodeBuildDotnetTestReportExample.Tests.csproj
+            #to trigger
