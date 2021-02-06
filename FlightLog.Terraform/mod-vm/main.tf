@@ -21,6 +21,28 @@ resource "aws_network_interface" "nic" {
   private_ips = ["10.0.1.100"]
 }
 
+resource "aws_security_group" "allow-all" {
+  name        = "allow-all"
+  description = "Allow all traffic"
+  vpc_id      = aws_vpc.vpc.id
+
+  ingress {
+    description = "Never do this"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.main-cidr-group]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+}
+
 resource "aws_instance" "vm" {
   ami           = "ami-047a51fa27710816e" # us-east-1
   instance_type = "t2.micro"
