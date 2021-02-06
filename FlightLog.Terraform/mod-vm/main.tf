@@ -66,6 +66,7 @@ resource "aws_security_group" "allow-all" {
 resource "aws_instance" "vm" {
   ami           = "ami-047a51fa27710816e" # us-east-1
   instance_type = "t2.micro"
+  key_name      = aws_key_pair.aws.key_name
 
   private_ip = "10.0.1.99"
   subnet_id = aws_subnet.snet.id
