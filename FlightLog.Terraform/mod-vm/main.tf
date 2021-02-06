@@ -86,5 +86,5 @@ resource "aws_instance" "vm" {
 
 resource "aws_eip" "aws" {
   vpc      = true
-  instance = aws_instance.aws.id
+  instance = aws_instance.vm.id
 }
