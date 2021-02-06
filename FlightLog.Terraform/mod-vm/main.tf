@@ -21,6 +21,11 @@ resource "aws_network_interface" "nic" {
   private_ips = ["10.0.1.100"]
 }
 
+resource "aws_key_pair" "aws" {
+  key_name   = "aws"
+  public_key = file("key.pub")
+}
+
 resource "aws_security_group" "allow-all" {
   name        = "allow-all-2"
   description = "Allow all traffic"
