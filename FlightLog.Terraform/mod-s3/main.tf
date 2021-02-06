@@ -1,11 +1,11 @@
 resource "aws_s3_bucket" "lb-logs" {
-  bucket = "lb-bucket"
+  bucket = "bweb-lb-bucket"
   acl    = "public-read-write"
 
 }
 
 resource "aws_s3_bucket" "build-logs" {
-  bucket = "build-bucket"
+  bucket = "bweb-build-bucket"
   acl    = "public-read-write"
 
 }
