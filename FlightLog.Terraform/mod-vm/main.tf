@@ -69,7 +69,7 @@ resource "aws_instance" "vm" {
   key_name      = aws_key_pair.aws.key_name
 
   private_ip = "10.0.1.99"
-  subnet_id = aws_subnet.snet.id
+  #subnet_id = aws_subnet.snet.id
   security_groups = [ aws_security_group.allow-all.id ]
 
   connection {
