@@ -1,5 +1,5 @@
 output vpc-id {
-    value = aws_vpc.vpc.id
+    value = aws_vpc.default.id
 }
 
 output main-cidr-group {
