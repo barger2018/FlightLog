@@ -22,7 +22,7 @@ resource "aws_network_interface" "nic" {
 }
 
 resource "aws_security_group" "allow-all" {
-  name        = "allow-all"
+  name        = "allow-all-2"
   description = "Allow all traffic"
   vpc_id      = aws_vpc.vpc.id
 
@@ -49,6 +49,7 @@ resource "aws_instance" "vm" {
 
   private_ip = "10.0.1.99"
   subnet_id = aws_subnet.snet.id
+  security_groups = [ aws_security_group.allow-all.id ]
 
   credit_specification {
     cpu_credits = "unlimited"
