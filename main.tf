@@ -13,3 +13,7 @@ provider "aws" {}
 module vm {
    source = "./FlightLog.Terraform/mod-vm"
 }
+
+module s3 {
+   source = "./FlightLog.Terraform/mod-s3"
+}
