@@ -34,13 +34,28 @@ resource "aws_security_group" "allow-all" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
 }
 
 resource "aws_instance" "vm" {
@@ -50,6 +65,13 @@ resource "aws_instance" "vm" {
   private_ip = "10.0.1.99"
   subnet_id = aws_subnet.snet.id
   security_groups = [ aws_security_group.allow-all.id ]
+
+  connection {
+    type        = "ssh"
+    user        = "ec2-user"
+    private_key = file("key")
+    host        = self.public_ip
+  }
 
   credit_specification {
     cpu_credits = "unlimited"
