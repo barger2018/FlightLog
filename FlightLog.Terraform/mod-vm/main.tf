@@ -93,6 +93,7 @@ resource "aws_instance" "vm" {
   }
 
   user_data = <<EOF
+#!/bin/bash
 ls
 EOF
 }
