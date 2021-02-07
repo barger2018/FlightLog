@@ -91,6 +91,11 @@ resource "aws_instance" "vm" {
   credit_specification {
     cpu_credits = "unlimited"
   }
+
+  user_data = <<EOF
+sudo -i
+
+  EOF
 }
 
 resource "aws_eip" "aws" {
