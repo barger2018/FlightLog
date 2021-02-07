@@ -9,3 +9,6 @@ phases:
             - dotnet build -c Release ./FlightLog/FlightLog.csproj
             - dotnet test -c Release ./FlightLog.UnitTests/FlightLog.UnitTests.csproj
             #to trigger
+artifacts:
+  files:
+    - '**/*'
