@@ -25,8 +25,8 @@ resource "aws_subnet" "snet" {
   depends_on = [aws_internet_gateway.gw]
 }
 
-resource "aws_route_table_association" "b" {
-  gateway_id     = aws_internet_gateway.gw.id
+resource "aws_route_table_association" "a" {
+  subnet_id      = aws_subnet.snet.id
   route_table_id = aws_route_table.r.id
 }
 
