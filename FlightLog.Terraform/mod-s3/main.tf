@@ -1,18 +1,18 @@
 resource "aws_s3_bucket" "lb-logs" {
   bucket = "bweb-lb-bucket"
-  acl    = "private"
+  acl    = "public-read-write"
 
 }
 
 resource "aws_s3_bucket" "build-logs" {
   bucket = "bweb-build-bucket"
-  acl    = "private"
+  acl    = "public-read-write"
 
 }
 
 resource "aws_s3_bucket" "artifacts" {
   bucket = "bweb-artifacts"
-  acl    = "private"
+  acl    = "public-read-write"
 
 }
 
