@@ -10,3 +10,9 @@ resource "aws_s3_bucket" "build-logs" {
 
 }
 
+resource "aws_s3_bucket" "artifacts" {
+  bucket = "bweb-build-bucket"
+  acl    = "private"
+
+}
+
