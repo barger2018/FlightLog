@@ -7,6 +7,16 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.default.id
 }
 
+resource "aws_route_table" "r" {
+  vpc_id = aws_vpc.default.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.gw.id
+    depends_on = [aws_internet_gateway.gw]
+  }
+}
+
 resource "aws_subnet" "snet" {
   vpc_id            = aws_vpc.default.id
   cidr_block        = "10.0.1.0/24"
@@ -16,9 +26,9 @@ resource "aws_subnet" "snet" {
   depends_on = [aws_internet_gateway.gw]
 }
 
-resource "aws_network_interface" "nic" {
-  subnet_id   = aws_subnet.snet.id
-  private_ips = ["10.0.1.100"]
+resource "aws_route_table_association" "b" {
+  gateway_id     = aws_internet_gateway.gw.id
+  route_table_id = aws_route_table.r.id
 }
 
 resource "aws_key_pair" "aws" {
