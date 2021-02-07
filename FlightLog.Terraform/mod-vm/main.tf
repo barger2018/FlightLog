@@ -88,9 +88,7 @@ resource "aws_instance" "vm" {
     host        = self.public_ip
   }
 
-  credit_specification {
-    cpu_credits = "unlimited"
-  }
+  
 
   user_data = <<EOF
 #!/bin/bash
