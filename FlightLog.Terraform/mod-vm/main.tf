@@ -102,6 +102,11 @@ unzip awscliv2.zip
 export AWS_ACCESS_KEY_ID=${var.access-key}
 export AWS_SECRET_ACCESS_KEY=${var.secret-key}
 export AWS_DEFAULT_REGION=${var.default-region}
+
+apt-get install -y apt-transport-https && \
+apt-get update && \
+apt-get install -y aspnetcore-runtime-3.1
+
 ./aws/install
 aws s3 sync s3://bweb-artifacts artifacts
 EOF
