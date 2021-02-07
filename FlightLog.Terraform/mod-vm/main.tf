@@ -99,8 +99,11 @@ service nginx start
 apt-get -y install unzip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
+export AWS_ACCESS_KEY_ID=${var.access-key}
+export AWS_SECRET_ACCESS_KEY=${var.secret-key}
+export AWS_DEFAULT_REGION=${var.default-region}
 ./aws/install
-echo ${var.access-key}
+aws s3 sync s3://bweb-artifacts artifacts
 EOF
 }
 
