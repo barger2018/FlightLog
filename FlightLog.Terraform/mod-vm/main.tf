@@ -94,6 +94,8 @@ resource "aws_instance" "vm" {
 
   user_data = <<EOF
 sudo -i
+echo "************************************************ USER DATA!! **********************************************"
+apt update
 
   EOF
 }
