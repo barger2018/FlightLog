@@ -12,6 +12,8 @@ provider "aws" {}
 
 module vm {
    source = "./FlightLog.Terraform/mod-vm"
+
+   access-key = var.access-key
 }
 
 module s3 {
