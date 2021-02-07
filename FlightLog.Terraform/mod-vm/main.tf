@@ -90,7 +90,7 @@ resource "aws_instance" "vm" {
 
   
 
-  user_data_base64 = base64encode(<<EOF
+  user_data = <<EOF
 #!/bin/bash
 sudo -i
 apt-get update
@@ -102,7 +102,7 @@ unzip awscliv2.zip
 ./aws/install
 
 EOF
-)
+
 }
 
 resource "aws_eip" "aws" {
