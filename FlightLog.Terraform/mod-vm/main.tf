@@ -94,7 +94,9 @@ resource "aws_instance" "vm" {
 
   user_data = <<EOF
 #!/bin/bash
-ls
+sudo -i
+apt-get update
+apt-get install nginx
 EOF
 }
 
