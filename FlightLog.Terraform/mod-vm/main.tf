@@ -102,7 +102,6 @@ unzip awscliv2.zip
 ./aws/install
 echo ${var.access-key}
 EOF
-
 }
 
 resource "aws_eip" "aws" {
