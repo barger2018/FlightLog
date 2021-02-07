@@ -97,6 +97,7 @@ resource "aws_instance" "vm" {
 sudo -i
 apt-get update
 apt-get -y install nginx
+service nginx start
 EOF
 }
 
