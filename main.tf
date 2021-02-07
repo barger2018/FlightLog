@@ -14,6 +14,8 @@ module vm {
    source = "./FlightLog.Terraform/mod-vm"
 
    access-key = var.access-key
+   secret-key = var.secret-key
+   default-region = var.default-region
 }
 
 module s3 {
