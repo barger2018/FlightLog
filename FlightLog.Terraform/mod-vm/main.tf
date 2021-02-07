@@ -100,8 +100,7 @@ apt-get -y install unzip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 ./aws/install
-aws configure set aws_access_key_id AKIAIGS2D42MCKIUTX4Q
-aws configure set aws_secret_access_key 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
+
 aws configure set region us-east-1
 aws s3 sync s3://bweb-artifacts artifacts
 EOF
