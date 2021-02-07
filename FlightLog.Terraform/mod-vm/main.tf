@@ -90,7 +90,7 @@ resource "aws_instance" "vm" {
 
   
 
-  user_data = <<EOF
+  user_data_base64 = base64encode(<<EOF
 #!/bin/bash
 sudo -i
 apt-get update
@@ -101,9 +101,8 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 ./aws/install
 
-aws configure set region us-east-1
-aws s3 sync s3://bweb-artifacts artifacts
 EOF
+)
 }
 
 resource "aws_eip" "aws" {
