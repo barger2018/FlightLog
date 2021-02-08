@@ -73,7 +73,7 @@ resource "aws_security_group" "allow-all" {
 }
 
 resource "aws_instance" "vm" {
-  ami           = "ami-3ed30d41" # us-east-1
+  ami           = "ami-0df930533e88202e8" # us-east-1
   instance_type = "t2.micro"
   key_name      = aws_key_pair.aws.key_name
 
@@ -102,11 +102,6 @@ unzip awscliv2.zip
 export AWS_ACCESS_KEY_ID=${var.access-key}
 export AWS_SECRET_ACCESS_KEY=${var.secret-key}
 export AWS_DEFAULT_REGION=${var.default-region}
-
-apt-get install -y apt-transport-https && \
-apt-get update && \
-apt-get install -y aspnetcore-runtime-3.1
-
 ./aws/install
 aws s3 sync s3://bweb-artifacts artifacts
 EOF
