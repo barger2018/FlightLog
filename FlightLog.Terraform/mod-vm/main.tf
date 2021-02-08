@@ -104,7 +104,7 @@ export AWS_SECRET_ACCESS_KEY=${var.secret-key}
 export AWS_DEFAULT_REGION=${var.default-region}
 ./aws/install
 aws s3 sync s3://bweb-artifacts artifacts
-cd /artifacts/FlightLogBuild/FlightLog/bin/Release/netcoreapp3.1
+cd /artifacts/FlightLogBuild/FlightLog/bin/Release/netcoreapp3.1/publish
 dotnet FlightLog.dll
 EOF
 }
