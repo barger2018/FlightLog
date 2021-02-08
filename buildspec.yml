@@ -8,7 +8,7 @@ phases:
         commands:
             - dotnet build -c Release ./FlightLog/FlightLog.csproj
             - dotnet test -c Release ./FlightLog.UnitTests/FlightLog.UnitTests.csproj
-            #to trigger
+            - dotnet publish -c Release ./FlightLog/FlightLog.csproj
 artifacts:
   files:
     - '**/*'
