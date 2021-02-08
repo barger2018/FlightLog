@@ -25,8 +25,7 @@ namespace FlightLog
                 {
                     webBuilder.UseStartup<Startup>()
                     .UseKestrel()
-                    .UseContentRoot(new DirectoryInfo(Assembly.GetExecutingAssembly().Location).Parent.Parent.Parent.FullName);
-                    //.UseContentRoot(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
+                    .UseContentRoot(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
                 });
     }
 }
